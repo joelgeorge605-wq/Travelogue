@@ -1,0 +1,18 @@
+IMAGE CHANGES
+- Removed all generic Unsplash stock photos (they were not Kerala/district specific).
+- Every attraction card now uses a photo of that actual place from Wikimedia Commons; each district has its own hero, culture and lifestyle photo, and the gallery is built from that district's photos.
+- Food cards use real Kerala dish photos matched by dish name; activity cards reuse the most relevant photo of that district.
+- Homepage hero/experience/culture banners also use Kerala photos (Munnar tea hills, Athirappilly, Onam sadya, Kathakali, Theyyam).
+
+Where an exact photo was not found a nearby/representative one was used:
+- Kottayam: Aruvikkuzhi Waterfalls -> Kattikkayam waterfalls photo
+- Thrissur: Kerala Kalamandalam -> Kathakali performance photo
+- Palakkad: Dhoni Waterfalls -> Meenvallam Falls (also Palakkad)
+- Malappuram: Adyanpara Waterfalls -> Nilambur Conolly's Plot; Ponnani Beach -> Ponnani harbour
+- Kasaragod: Chandragiri Fort -> Kottappuram beach
+- Idukki culture slot: Ramakkalmedu Kuravan-Kurathi statue
+- Kannur: Arakkal Museum -> Arakkal Palace interior
+Photos are loaded online from commons.wikimedia.org; each remains under its author's licence (see the file's Commons page).
+
+
+Hotel photo correction (2026-11): Replaced screenshot-proxy thumbnails with direct, property-specific photo URLs. Removed listings without a verified specific photo. A card is automatically removed if its image host no longer serves the image. Images are loaded from the credited external source and require an internet connection.

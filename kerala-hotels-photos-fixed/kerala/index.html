@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore all 14 districts of Kerala — places, food, culture, activities and local life.">
+<title>KERALA — Discover God's Own Country</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
+  <a class="brand" href="index.html">
+    <span class="brand-mark">K</span>
+    <span>KERALA<small>GOD'S OWN COUNTRY</small></span>
+  </a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+  <nav class="main-nav" id="mainNav">
+    <a class="active" href="#home">Home</a>
+    <a href="#districts">Districts</a>
+    <a href="#hotels">Hotels</a>
+    <a href="#experiences">Experiences</a>
+    <a href="#culture">Culture</a>
+    <a href="#about">About Kerala</a>
+  </nav>
+  <a class="nav-cta" href="#districts">Explore Kerala <span>↗</span></a>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-image" id="heroBg"></div>
+  <div class="hero-shade"></div>
+  <div class="hero-content">
+    <p class="eyebrow light">14 DISTRICTS · ONE EXTRAORDINARY LAND</p>
+    <h1>Find your own<br><em>Kerala story.</em></h1>
+    <p class="hero-copy">From mist-covered mountains to the quiet rhythm of the backwaters, discover the places, flavours, people and traditions that make Kerala unforgettable.</p>
+    <a class="button button-light" href="#districts">Explore the districts <span>↓</span></a>
+  </div>
+  <div class="hero-caption">
+    <span>01 / 14</span>
+    <span>THE LAND OF BEAUTY & DIVERSITY</span>
+  </div>
+  <div class="hero-scroll-indicator" aria-hidden="true">
+    <div class="mouse-icon"><div class="mouse-wheel"></div></div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<section class="intro section-wrap" id="about">
+  <div class="section-kicker" data-reveal>A STATE OF MANY STORIES</div>
+  <div class="intro-grid">
+    <h2 data-reveal>Small in size.<br><em>Rich in stories.</em></h2>
+    <div data-reveal>
+      <p>Kerala is a meeting of landscapes and cultures — a narrow strip between the Arabian Sea and the Western Ghats. Every district has its own character: a different food tradition, a festival, a craft, a coastline or a mountain path.</p>
+      <p>This guide brings those stories together, district by district, so you can explore beyond the familiar postcard.</p>
+    </div>
+  </div>
+  <div class="stats" data-reveal>
+    <div><strong>14</strong><span>Districts</span></div>
+    <div><strong>590+</strong><span>Kilometres of coastline</span></div>
+    <div><strong>44</strong><span>Rivers</span></div>
+    <div><strong>1</strong><span>Beautiful Kerala</span></div>
+  </div>
+</section>
+
+<section class="district-section" id="districts">
+  <div class="section-wrap">
+    <div class="section-heading" data-reveal>
+      <div>
+        <div class="section-kicker">EXPLORE THE MAP</div>
+        <h2>Every district.<br><em>A different world.</em></h2>
+      </div>
+      <p>Choose a district to discover its signature places, local food, activities, culture and everyday life.</p>
+    </div>
+    <div class="district-tools" data-reveal>
+      <label class="search-box">
+        <span class="search-icon">⌕</span>
+        <input id="districtSearch" type="search" placeholder="Search a district..." autocomplete="off">
+        <button id="searchClear" class="search-clear" type="button" aria-label="Clear search" style="display:none;">✕</button>
+      </label>
+      <div class="district-count"><b id="districtCount">14</b> districts to explore</div>
+    </div>
+    <div class="district-grid" id="districtGrid" data-reveal></div>
+  </div>
+</section>
+
+<section class="hotel-section" id="hotels">
+  <div class="section-wrap">
+    <div class="section-heading" data-reveal>
+      <div><div class="section-kicker">STAY A LITTLE LONGER</div><h2>Find your stay.<br><em>Across all Kerala.</em></h2></div>
+      <p>Explore hotel and resort options district by district, from comfortable stays to premium escapes.</p>
+    </div>
+    <div class="hotel-toolbar" data-reveal>
+      <span>HOTELS &amp; RESORTS · 14 DISTRICTS</span>
+      <label for="hotelStarFilter">Filter by category
+        <select id="hotelStarFilter"><option value="all">All categories</option><option value="5">5 star</option><option value="4">4 star</option><option value="3">3 star</option></select>
+      </label>
+    </div>
+    <div id="hotelDistricts"></div>
+    <p class="hotel-disclaimer">Star labels are indicative directory categories and may change. Confirm the current official classification, facilities and availability directly with the property before booking. Hotel website previews are linked to each property's website.</p>
+    <a class="hotel-source" href="https://www.keralatourism.org/hotels/" target="_blank" rel="noopener">Explore Kerala Tourism's official accommodation directory ↗</a>
+  </div>
+</section>
+
+<section class="experience-section" id="experiences">
+  <div class="section-wrap">
+    <div class="section-kicker light" data-reveal>EXPERIENCE THE ESSENCE</div>
+    <h2 data-reveal>More than a destination.<br><em>A feeling.</em></h2>
+    <div class="experience-grid" data-reveal>
+      <article class="experience-card exp-nature"><div><span>01</span><h3>Nature &amp; wild places</h3><p>Walk through rainforests, tea gardens, wetlands and mountain trails.</p></div></article>
+      <article class="experience-card exp-food"><div><span>02</span><h3>Flavours of Kerala</h3><p>Discover the regional dishes, spices, seafood and sweet traditions.</p></div></article>
+      <article class="experience-card exp-heritage"><div><span>03</span><h3>Culture &amp; heritage</h3><p>Meet living traditions through festivals, art forms, craft and history.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="culture-strip" id="culture">
+  <div class="culture-photo" id="cultureBg" data-reveal="scale-in"></div>
+  <div class="culture-copy" data-reveal="fade-left">
+    <div class="section-kicker">LIVING HERITAGE</div>
+    <h2>Traditions that<br><em>are still alive.</em></h2>
+    <p>Kerala's culture is not kept behind glass. It lives in temple festivals, Theyyam performances, boat races, handloom workshops, kitchens, music, stories and the rhythm of everyday communities.</p>
+    <a class="text-link" href="#districts">Discover district cultures <span>↗</span></a>
+  </div>
+</section>
+
+<section class="closing section-wrap" data-reveal>
+  <div class="closing-mark">K</div>
+  <div>
+    <div class="section-kicker">YOUR JOURNEY STARTS HERE</div>
+    <h2>Take the scenic route.<br><em>Stay for the stories.</em></h2>
+  </div>
+  <a class="button button-dark" href="#districts">Choose a district <span>↑</span></a>
+</section>
+</main>
+
+<footer class="footer">
+  <a class="brand brand-footer" href="index.html">
+    <span class="brand-mark">K</span>
+    <span>KERALA<small>GOD'S OWN COUNTRY</small></span>
+  </a>
+  <p>A district-wise guide to the places, people, food and culture of Kerala.</p>
+  <span>Independent informational travel guide · 2026</span>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/hotels.js"></script>
+</body>
+</html>
