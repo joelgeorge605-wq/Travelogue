@@ -1,5 +1,8 @@
-/* Verified hotel photographs: only properties with a specific, identifiable property image are listed.
-   Photos are loaded directly from their image hosts; an unavailable image removes its card. */
+/**
+ * KERALA ODYSSEY — LUXURY HOTELS & SANCTUARIES DIRECTORY
+ * Verified Accommodations Engine with Category Filters, Search & Bucket List Sync
+ */
+
 const keralaHotels = [
   ['Thiruvananthapuram','The Leela Kovalam','5','Kovalam','https://www.theraviz.com/the-leela-kovalam-a-raviz-hotel/','https://img.theweek.in/content/dam/week/week/news/tourism/images/2025/1/11/leela-raviz-kovalam.jpg.transform/schema-16x9/image.jpg','The Week'],
   ['Thiruvananthapuram','KTDC Samudra','3','Kovalam','https://www.ktdc.com/samudra','https://www.keralatourism.org/uploads/destination-wedding/images/large/exterior1-20230301102755484929.jpg','Kerala Tourism'],
@@ -20,39 +23,88 @@ const keralaHotels = [
   ['Kasaragod','Taj Bekal Resort & Spa','5','Bekal','https://www.tajhotels.com/','https://r1imghtlak.mmtcdn.com/84c0268e220911e8a6d40a4cef95d023.jpg','MakeMyTrip']
 ];
 
-(function(){
- const root=document.getElementById('hotelDistricts'); if(!root)return;
- const districts=[...new Set(keralaHotels.map(h=>h[0]))];
- root.innerHTML=districts.map(d=>{
-  const cards=keralaHotels.filter(h=>h[0]===d).map(h=>{
-   const [district,name,stars,place,url,image,source]=h;
-   return `<article class="hotel-card" data-stars="${stars}">
-    <a class="hotel-image-link" href="${url}" target="_blank" rel="noopener">
-     <img class="hotel-image" src="${image}" alt="${name} property photograph" loading="lazy" referrerpolicy="no-referrer">
-     <span class="hotel-stars">${'★'.repeat(Number(stars))}<small> ${stars} STAR</small></span>
-    </a>
-    <div class="hotel-info">
-     <span class="hotel-place">${place} · ${district}</span>
-     <h3>${name}</h3>
-     <a class="hotel-visit" href="${url}" target="_blank" rel="noopener">Official website <span>↗</span></a>
-     <div class="hotel-photo-credit">Photo: ${source}</div>
-    </div>
-   </article>`;
-  }).join('');
-  return `<section class="hotel-district-block"><div class="hotel-district-title"><h3>${d}</h3><span class="hotel-count">PHOTO-VERIFIED STAYS</span></div><div class="hotel-cards">${cards}</div></section>`;
- }).join('');
+(function () {
+  'use strict';
 
- // Remove any listing whose photograph cannot be loaded; never substitute a generic image.
- root.querySelectorAll('.hotel-image').forEach(img=>{
-   img.addEventListener('error',()=>{
-     const block=img.closest('.hotel-district-block');
-     img.closest('.hotel-card')?.remove();
-     if(block && !block.querySelector('.hotel-card')) block.remove();
-   },{once:true});
- });
- const filter=document.getElementById('hotelStarFilter');
- filter?.addEventListener('change',()=>{
-   document.querySelectorAll('.hotel-card').forEach(c=>c.hidden=filter.value!=='all'&&c.dataset.stars!==filter.value);
-   document.querySelectorAll('.hotel-district-block').forEach(b=>b.hidden=!b.querySelector('.hotel-card:not([hidden])'));
- });
+  const container = document.getElementById('hotelGrid');
+  const starFilterBtns = document.querySelectorAll('.star-filter-btn');
+  const hotelSearchInput = document.getElementById('hotelSearchInput');
+
+  let activeStar = 'all';
+  let searchQuery = '';
+
+  function renderHotels() {
+    if (!container) return;
+
+    const filtered = keralaHotels.filter(item => {
+      const [district, name, stars, place] = item;
+      const matchesStar = activeStar === 'all' || stars === activeStar;
+      const matchesQuery = !searchQuery || 
+        name.toLowerCase().includes(searchQuery) ||
+        district.toLowerCase().includes(searchQuery) ||
+        place.toLowerCase().includes(searchQuery);
+
+      return matchesStar && matchesQuery;
+    });
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--text-muted); background: #ffffff; border-radius: var(--radius-md); border: 1px dashed var(--border-subtle);">
+          <p style="font-size: 16px; font-weight: 600;">No properties found matching your selection.</p>
+          <p style="font-size: 13px; margin-top: 6px;">Try adjusting the star filter or searching for another district or hotel name.</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = filtered.map(h => {
+      const [district, name, stars, place, url, image, source] = h;
+      const starText = '★'.repeat(Number(stars)) + ` ${stars} STAR LUXURY`;
+      
+      return `
+        <article class="hotel-card" data-stars="${stars}" data-hotel-name="${name}">
+          <a class="hotel-thumb-link" href="${url}" target="_blank" rel="noopener">
+            <img class="hotel-thumb" src="${image}" alt="${name} photograph" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.hotel-card')?.remove()">
+            <span class="hotel-star-badge">${starText}</span>
+          </a>
+          <div class="hotel-body">
+            <div class="hotel-location">${place} · ${district}</div>
+            <h3 class="hotel-name">${name}</h3>
+            <div class="hotel-actions">
+              <a class="hotel-book-btn" href="${url}" target="_blank" rel="noopener">
+                Official Property <span>↗</span>
+              </a>
+              <button class="district-fav-btn" style="width: 32px; height: 32px; font-size: 14px;" title="Save to Bucket List" onclick="window.toggleWishlistItem('${name.replace(/'/g, "\\'")}', 'Hotel', event)">
+                ♥
+              </button>
+            </div>
+            <div style="font-size: 10.5px; color: var(--text-muted); margin-top: 10px;">Photo source: ${source}</div>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  // Setup star filters
+  if (starFilterBtns) {
+    starFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        starFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeStar = btn.dataset.star || 'all';
+        renderHotels();
+      });
+    });
+  }
+
+  // Setup hotel search
+  if (hotelSearchInput) {
+    hotelSearchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderHotels();
+    });
+  }
+
+  // Initial render
+  renderHotels();
 })();

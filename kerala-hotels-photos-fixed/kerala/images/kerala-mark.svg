@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#183b32"/><text x="32" y="43" text-anchor="middle" font-family="Georgia" font-size="38" fill="#fff">K</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="markGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE790"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#0A261C" stroke="url(#markGold)" stroke-width="2"/>
+  <circle cx="32" cy="32" r="24" stroke="#10B981" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+  <path d="M 32 14 C 26 21 21 27 21 34 C 21 41 26 47 32 48 C 38 47 43 41 43 34 C 43 27 38 21 32 14 Z" fill="none" stroke="url(#markGold)" stroke-width="2"/>
+  <circle cx="32" cy="22" r="2.5" fill="url(#markGold)"/>
+  <path d="M 32 27 L 32 46" stroke="url(#markGold)" stroke-width="2" stroke-linecap="round"/>
+</svg>

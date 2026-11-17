@@ -1,12 +1,104 @@
 ﻿<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Explore this Kerala district — top places, local food, activities, culture and lifestyle.">
-<title>District Guide | KERALA</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css"></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore this sovereign Kerala district — top attractions, gastronomic traditions, curated experiences and culture.">
+  <title>District Dossier | KERALA ODYSSEY</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../images/kerala-mark.svg">
+</head>
 <body class="district-page">
-<header class="site-header"><a class="brand" href="../index.html"><span class="brand-mark">K</span><span>KERALA<small>GOD'S OWN COUNTRY</small></span></a><button class="menu-toggle" aria-label="Open navigation">☰</button><nav class="main-nav"><a href="../index.html#home">Home</a><a class="active" href="../index.html#districts">Districts</a><a href="../index.html#experiences">Experiences</a><a href="../index.html#culture">Culture</a></nav><a class="nav-cta" href="../index.html#districts">All districts <span>↗</span></a></header>
-<main id="districtContent"><div class="loading">Preparing your district guide…</div></main>
-<footer class="footer"><a class="brand brand-footer" href="../index.html"><span class="brand-mark">K</span><span>KERALA<small>GOD'S OWN COUNTRY</small></span></a><p>A district-wise guide to the places, people, food and culture of Kerala.</p><a href="../index.html#districts">← Explore all 14 districts</a></footer>
-<script src="../js/data.js"></script><script src="../js/district.js"></script></body></html>
+  <!-- Progress bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="../index.html" aria-label="Kerala Odyssey Home">
+      <img class="brand-logo-img" src="../images/kerala-logo.svg" alt="Kerala Odyssey Logo">
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html#home">Home</a>
+      <a class="nav-link active" href="../index.html#districts">All 14 Districts</a>
+      <a class="nav-link" href="../index.html#planner">Trip Architect</a>
+      <a class="nav-link" href="../index.html#hotels">Luxury Stays</a>
+      <a class="nav-link" href="../index.html#culture">Living Heritage</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="nav-cta-btn" href="../index.html#districts">
+        ← Back to Directory
+      </a>
+      <button class="menu-toggle-btn" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- Dynamic Content rendered by district.js -->
+  <main id="districtContent">
+    <div style="padding: 120px 20px; text-align: center; color: var(--text-muted);">
+      <p style="font-family: var(--font-serif); font-size: 24px; color: var(--text-primary);">Curating District Intelligence…</p>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="../index.html">
+            <img class="brand-logo-img" src="../images/kerala-logo.svg" alt="Kerala Odyssey">
+          </a>
+          <p class="footer-desc">
+            A comprehensive, district-by-district luxury dossier exploring the sovereign landscapes, verified stays, and living culture of God's Own Country.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Directory Navigation</h4>
+          <ul>
+            <li><a href="../index.html#districts">Browse All 14 Districts</a></li>
+            <li><a href="../index.html#planner">Trip Planner &amp; Estimator</a></li>
+            <li><a href="../index.html#hotels">Photo-Verified Resorts</a></li>
+            <li><a href="../index.html#seasons">Seasonal Packing Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sovereign Gateway</h4>
+          <ul>
+            <li><a href="thiruvananthapuram.html">Thiruvananthapuram</a></li>
+            <li><a href="alappuzha.html">Alappuzha</a></li>
+            <li><a href="idukki.html">Idukki</a></li>
+            <li><a href="ernakulam.html">Ernakulam</a></li>
+            <li><a href="wayanad.html">Wayanad</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore Further</h4>
+          <ul>
+            <li><a href="kozhikode.html">Kozhikode</a></li>
+            <li><a href="kannur.html">Kannur</a></li>
+            <li><a href="kasaragod.html">Kasaragod</a></li>
+            <li><a href="thrissur.html">Thrissur</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Independent Travel Intelligence · © 2026 Kerala Odyssey</div>
+        <a href="../index.html#districts" style="color: var(--c-gold-bright); font-weight: 700;">Explore All 14 Sovereign Districts ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/district.js"></script>
+</body>
+</html>
